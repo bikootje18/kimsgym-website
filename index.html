@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kim's Gym 24/7 — Sportschool in St. Willebrord</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f6f2;
+      --white: #ffffff;
+      --black: #111111;
+      --text: #222222;
+      --muted: #888888;
+      --border: rgba(0,0,0,0.09);
+      --accent: #b8ff00;
+      --shadow: 0 2px 24px rgba(0,0,0,0.07);
+      --shadow-lg: 0 8px 48px rgba(0,0,0,0.1);
+    }
+
+    * { box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); margin: 0; -webkit-font-smoothing: antialiased; }
+
+    /* Nav */
+    .nav-link { color: #666; font-size: 0.9rem; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+    .nav-link:hover { color: var(--black); }
+
+    /* Buttons */
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--black); color: #fff;
+      font-size: 0.875rem; font-weight: 600; letter-spacing: 0.01em;
+      padding: 14px 28px; border-radius: 9999px; text-decoration: none;
+      transition: background 0.2s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .btn-dark:hover { background: #333; transform: translateY(-1px); }
+    .btn-dark:active { transform: translateY(0); }
+
+    .btn-green {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: var(--black);
+      font-size: 0.875rem; font-weight: 700; letter-spacing: 0.01em;
+      padding: 14px 28px; border-radius: 9999px; text-decoration: none;
+      transition: filter 0.2s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .btn-green:hover { filter: brightness(1.06); transform: translateY(-1px); }
+    .btn-green:active { transform: translateY(0); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--black);
+      font-size: 0.875rem; font-weight: 500; letter-spacing: 0.01em;
+      padding: 13px 28px; border-radius: 9999px; text-decoration: none;
+      border: 1.5px solid rgba(0,0,0,0.2);
+      transition: border-color 0.2s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .btn-outline:hover { border-color: var(--black); transform: translateY(-1px); }
+    .btn-outline:active { transform: translateY(0); }
+
+    /* Service cards */
+    .service-card {
+      background: var(--white); border-radius: 20px; padding: 2.25rem;
+      box-shadow: var(--shadow); text-decoration: none; display: block; color: var(--text);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+    /* Icon pill */
+    .icon-pill {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 48px; height: 48px; border-radius: 14px;
+      background: var(--accent); margin-bottom: 1.25rem;
+    }
+
+    /* Stat card */
+    .stat-card { background: var(--white); border-radius: 18px; padding: 2rem; box-shadow: var(--shadow); }
+
+    /* Animations */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    .d1 { animation-delay: 0.05s; opacity: 0; }
+    .d2 { animation-delay: 0.15s; opacity: 0; }
+    .d3 { animation-delay: 0.28s; opacity: 0; }
+    .d4 { animation-delay: 0.42s; opacity: 0; }
+
+    /* Floating WhatsApp button */
+    .wa-fab { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 90; background: #25D366; color: #fff; padding: 12px 20px 12px 14px; border-radius: 9999px; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 0.9rem; box-shadow: 0 12px 32px rgba(37,211,102,0.35); transition: transform 0.2s, box-shadow 0.2s; }
+    .wa-fab:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(37,211,102,0.45); }
+    .wa-fab svg { width: 22px; height: 22px; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header style="position:sticky;top:0;z-index:100;background:rgba(247,246,242,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);">
+    <nav style="max-width:1280px;margin:0 auto;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between;">
+      <a href="index.html" style="font-family:'Bebas Neue',cursive;font-size:1.5rem;letter-spacing:0.06em;color:var(--black);text-decoration:none;">KIM'S GYM</a>
+      <ul style="list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:2rem;" class="hidden md:flex">
+        <li><a href="openingstijden.html" class="nav-link">Openingstijden</a></li>
+        <li><a href="abonnementen.html" class="nav-link">Abonnementen</a></li>
+        <li><a href="coachingtrajecten.html" class="nav-link">Coaching Trajecten</a></li>
+        <li><a href="bedrijfsfitness.html" class="nav-link">Bedrijfsfitness</a></li>
+        <li><a href="overons.html" class="nav-link">Over ons</a></li>
+        <li><a href="contact.html" class="btn-green" style="margin-left:8px;padding:10px 22px;font-size:0.825rem;">Gratis intake</a></li>
+      </ul>
+      <button id="menu-btn" class="md:hidden" style="background:none;border:none;cursor:pointer;color:#666;padding:4px;" aria-label="Menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="12" x2="19" y2="12"/><line x1="3" y1="18" x2="19" y2="18"/>
+        </svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" style="display:none;background:var(--white);border-top:1px solid var(--border);padding:1.5rem 2rem;">
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1.25rem;">
+        <li><a href="openingstijden.html" style="color:#666;font-size:0.9375rem;text-decoration:none;">Openingstijden</a></li>
+        <li><a href="abonnementen.html" style="color:#666;font-size:0.9375rem;text-decoration:none;">Abonnementen</a></li>
+        <li><a href="coachingtrajecten.html" style="color:#666;font-size:0.9375rem;text-decoration:none;">Coaching Trajecten</a></li>
+        <li><a href="bedrijfsfitness.html" style="color:#666;font-size:0.9375rem;text-decoration:none;">Bedrijfsfitness</a></li>
+        <li><a href="overons.html" style="color:#666;font-size:0.9375rem;text-decoration:none;">Over ons</a></li>
+        <li><a href="contact.html" style="color:var(--black);font-size:0.9375rem;font-weight:700;text-decoration:none;">Gratis intake →</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section style="max-width:1280px;margin:0 auto;padding:4rem 2rem 5rem;">
+    <div style="display:grid;grid-template-columns:1fr;gap:3rem;align-items:center;" class="lg:grid-cols-2">
+
+      <!-- Left: text -->
+      <div>
+        <div class="fade-up d1" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:9999px;padding:6px 14px;font-size:0.8rem;font-weight:600;color:#555;margin-bottom:2rem;">
+          <span style="width:8px;height:8px;border-radius:50%;background:#b8ff00;display:block;"></span>
+          24/7 geopend &nbsp;·&nbsp; St. Willebrord
+        </div>
+        <h1 class="fade-up d2" style="font-family:'Bebas Neue',cursive;font-size:clamp(4.5rem,10vw,8rem);line-height:0.92;color:var(--black);margin:0 0 1.5rem 0;">
+          Jouw plek om<br><span style="background:var(--accent);padding:0 8px;display:inline-block;transform:skewX(-2deg);">sterker</span><br>te worden.
+        </h1>
+        <p class="fade-up d3" style="color:var(--muted);font-size:1.125rem;line-height:1.8;max-width:460px;margin:0 0 2.5rem 0;">
+          Kim's Gym is jouw sportschool in St. Willebrord — voor beginners én gevorderden. Persoonlijk, eerlijk en 365 dagen per jaar open.
+        </p>
+        <div class="fade-up d4" style="display:flex;flex-wrap:wrap;gap:0.875rem;">
+          <a href="contact.html" class="btn-green">Online inschrijven</a>
+          <a href="contact.html" class="btn-dark">Plan gratis intake</a>
+        </div>
+        <p class="fade-up d4" style="color:var(--muted);font-size:0.825rem;margin:1.25rem 0 0 0;">Gratis intakegesprek · vrijblijvend · binnen 1 uur reactie</p>
+      </div>
+
+      <!-- Right: image + floating badges -->
+      <div class="fade-up d3" style="position:relative;">
+        <div style="border-radius:24px;overflow:hidden;background:#d8d4ca url('images/IMG_3623.jpg') center/cover no-repeat;aspect-ratio:7/6;position:relative;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.25) 100%);"></div>
+        </div>
+        <!-- Floating badge 1 -->
+        <div style="position:absolute;bottom:2rem;left:-1.5rem;background:var(--white);border-radius:16px;padding:1rem 1.25rem;box-shadow:0 8px 32px rgba(0,0,0,0.12);display:flex;align-items:center;gap:0.875rem;">
+          <div style="width:44px;height:44px;border-radius:12px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="20" height="20" fill="none" stroke="var(--black)" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <p style="color:var(--black);font-size:1rem;font-weight:700;margin:0;line-height:1;">24/7 Open</p>
+            <p style="color:var(--muted);font-size:0.775rem;margin:0.2rem 0 0 0;">365 dagen per jaar</p>
+          </div>
+        </div>
+        <!-- Floating badge 2 -->
+        <div style="position:absolute;top:2rem;right:-1rem;background:var(--black);border-radius:16px;padding:1rem 1.25rem;box-shadow:0 8px 32px rgba(0,0,0,0.2);">
+          <p style="color:var(--accent);font-family:'Bebas Neue',cursive;font-size:2.25rem;line-height:1;margin:0;">Gratis</p>
+          <p style="color:rgba(255,255,255,0.6);font-size:0.75rem;margin:0.25rem 0 0 0;">Intakegesprek</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ONLINE INSCHRIJVEN — prominent block right after hero -->
+  <section style="max-width:1280px;margin:0 auto;padding:0 2rem;">
+    <div style="background:var(--accent);border-radius:28px;padding:clamp(2.5rem,5vw,3.5rem);display:grid;grid-template-columns:1fr;gap:2rem;align-items:center;" class="md:grid-cols-12">
+      <div class="md:col-span-7">
+        <p style="color:rgba(0,0,0,0.65);font-size:0.78rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;margin:0 0 1rem 0;">Online inschrijven</p>
+        <h2 style="font-family:'Bebas Neue',cursive;font-size:clamp(2.25rem,5vw,4rem);line-height:0.95;color:var(--black);margin:0 0 1rem 0;">Vandaag inschrijven,<br>vandaag beginnen.</h2>
+        <p style="color:rgba(0,0,0,0.7);font-size:1rem;line-height:1.7;margin:0;max-width:520px;">Schrijf je direct online in via een eenvoudig formulier. Geen wachttijd — je krijgt direct toegang tot 24/7 trainen en persoonlijke begeleiding.</p>
+      </div>
+      <div class="md:col-span-5" style="display:flex;flex-direction:column;gap:0.875rem;align-items:flex-start;justify-content:center;">
+        <a href="contact.html" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--black);color:#fff;font-size:0.95rem;font-weight:700;padding:16px 32px;border-radius:9999px;text-decoration:none;width:100%;transition:transform 0.2s, background 0.2s;" onmouseover="this.style.background='#333';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--black)';this.style.transform='translateY(0)'">
+          Schrijf je online in →
+        </a>
+        <a href="contact.html" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:rgba(0,0,0,0.08);color:var(--black);font-size:0.875rem;font-weight:600;padding:14px 28px;border-radius:9999px;text-decoration:none;width:100%;transition:background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.14)'" onmouseout="this.style.background='rgba(0,0,0,0.08)'">
+          Eerst gratis intakegesprek
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-top:5rem;">
+    <div style="max-width:1280px;margin:0 auto;padding:4rem 2rem;">
+      <div style="display:grid;grid-template-columns:1fr;gap:2rem;" class="md:grid-cols-3">
+        <div class="stat-card">
+          <p style="font-family:'Bebas Neue',cursive;font-size:3.5rem;color:var(--black);line-height:1;margin:0 0 0.5rem 0;">24/7</p>
+          <p style="color:var(--muted);font-size:0.9375rem;line-height:1.75;margin:0;">365 dagen per jaar toegang via jouw persoonlijke chip. Train wanneer jij wilt.</p>
+        </div>
+        <div class="stat-card">
+          <p style="font-family:'Bebas Neue',cursive;font-size:3.5rem;color:var(--black);line-height:1;margin:0 0 0.5rem 0;">100%</p>
+          <p style="color:var(--muted);font-size:0.9375rem;line-height:1.75;margin:0;">Eerlijk advies over training en voeding. Geen verkooppraatjes, wel resultaten.</p>
+        </div>
+        <div class="stat-card" style="background:var(--black);">
+          <p style="font-family:'Bebas Neue',cursive;font-size:3.5rem;color:var(--accent);line-height:1;margin:0 0 0.5rem 0;">Gratis</p>
+          <p style="color:rgba(255,255,255,0.55);font-size:0.9375rem;line-height:1.75;margin:0;">Intakegesprek om kennis te maken en samen te kijken wat bij jou past.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section style="max-width:1280px;margin:0 auto;padding:6rem 2rem 3rem;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem;">
+      <div>
+        <p style="color:var(--muted);font-size:0.8rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin:0 0 0.75rem 0;">Wat wij bieden</p>
+        <h2 style="font-family:'Bebas Neue',cursive;font-size:clamp(2.5rem,5.5vw,4.5rem);line-height:0.95;color:var(--black);margin:0;">Onze diensten</h2>
+      </div>
+      <a href="contact.html" class="btn-outline">Plan gratis intake →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr;gap:1.25rem;" class="md:grid-cols-2 lg:grid-cols-3">
+
+      <a href="abonnementen.html" class="service-card">
+        <div class="icon-pill">
+          <svg width="22" height="22" fill="none" stroke="var(--black)" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+          </svg>
+        </div>
+        <h3 style="font-family:'DM Sans',sans-serif;font-size:1.125rem;font-weight:700;color:var(--black);margin:0 0 0.625rem 0;letter-spacing:-0.01em;">Fitness</h3>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.75;margin:0 0 1.5rem 0;">24/7 toegang voor leden via persoonlijke chip. Cardio en krachtapparatuur voor elk niveau.</p>
+        <p style="color:var(--black);font-size:0.8125rem;font-weight:700;margin:0;">Abonnementen →</p>
+      </a>
+
+      <a href="coachingtrajecten.html" class="service-card">
+        <div class="icon-pill">
+          <svg width="22" height="22" fill="none" stroke="var(--black)" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+          </svg>
+        </div>
+        <h3 style="font-family:'DM Sans',sans-serif;font-size:1.125rem;font-weight:700;color:var(--black);margin:0 0 0.625rem 0;letter-spacing:-0.01em;">Coaching Trajecten</h3>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.75;margin:0 0 1.5rem 0;">12-weken traject voor vrouwen. Bewegen op jouw tempo met persoonlijke begeleiding en Move Within groepsles.</p>
+        <p style="color:var(--black);font-size:0.8125rem;font-weight:700;margin:0;">Meer informatie →</p>
+      </a>
+
+      <a href="bedrijfsfitness.html" class="service-card">
+        <div class="icon-pill">
+          <svg width="22" height="22" fill="none" stroke="var(--black)" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"/>
+          </svg>
+        </div>
+        <h3 style="font-family:'DM Sans',sans-serif;font-size:1.125rem;font-weight:700;color:var(--black);margin:0 0 0.625rem 0;letter-spacing:-0.01em;">Bedrijfsfitness</h3>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.75;margin:0 0 1.5rem 0;">Fit en energiek personeel. Via Bedrijfsfitness Nederland eenvoudig te regelen voor je organisatie.</p>
+        <p style="color:var(--black);font-size:0.8125rem;font-weight:700;margin:0;">Meer informatie →</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- GRATIS INTAKE — Second prominent section -->
+  <section style="max-width:1280px;margin:0 auto;padding:5rem 2rem;">
+    <div style="display:grid;grid-template-columns:1fr;gap:3rem;align-items:center;" class="lg:grid-cols-12">
+
+      <!-- Image -->
+      <div class="lg:col-span-5" style="position:relative;">
+        <div style="border-radius:24px;overflow:hidden;background:#e6e3da url('images/IMG_3628.jpg') center/cover no-repeat;aspect-ratio:1/1;position:relative;">
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(184,255,0,0.12) 0%, transparent 60%, rgba(0,0,0,0.3) 100%);mix-blend-mode:multiply;"></div>
+        </div>
+        <div style="position:absolute;bottom:1.5rem;left:-1rem;background:var(--white);border-radius:18px;padding:1.25rem 1.5rem;box-shadow:0 12px 32px rgba(0,0,0,0.12);">
+          <p style="font-family:'Bebas Neue',cursive;font-size:2rem;color:var(--black);line-height:1;margin:0;">€ 0,-</p>
+          <p style="color:var(--muted);font-size:0.78rem;margin:0.3rem 0 0 0;">Volledig vrijblijvend</p>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="lg:col-span-7">
+        <p style="color:var(--muted);font-size:0.8rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin:0 0 1rem 0;">Begin met een gratis intake</p>
+        <h2 style="font-family:'Bebas Neue',cursive;font-size:clamp(2.5rem,5.5vw,4.5rem);line-height:0.95;color:var(--black);margin:0 0 1.25rem 0;">Eerst kennismaken,<br>dan beslissen.</h2>
+        <p style="color:var(--muted);font-size:1.0625rem;line-height:1.8;margin:0 0 2rem 0;max-width:560px;">Voordat je iets vastlegt, kom eerst langs voor een gratis intakegesprek. We luisteren naar je doelen, kijken samen wat past, en je gaat naar huis met een helder plan — of het nu een abonnement, een traject of een groepsles wordt.</p>
+
+        <!-- Bullet list -->
+        <div style="margin-bottom:2rem;">
+          <div style="display:flex;align-items:flex-start;gap:0.875rem;margin-bottom:0.75rem;">
+            <div style="width:20px;height:20px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><svg width="11" height="11" fill="none" stroke="var(--black)" stroke-width="2.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg></div>
+            <span style="color:var(--text);font-size:0.95rem;line-height:1.6;">30 minuten, persoonlijk, zonder verplichtingen</span>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:0.875rem;margin-bottom:0.75rem;">
+            <div style="width:20px;height:20px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><svg width="11" height="11" fill="none" stroke="var(--black)" stroke-width="2.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg></div>
+            <span style="color:var(--text);font-size:0.95rem;line-height:1.6;">We bespreken jouw doelen, niveau en wensen</span>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:0.875rem;">
+            <div style="width:20px;height:20px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><svg width="11" height="11" fill="none" stroke="var(--black)" stroke-width="2.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg></div>
+            <span style="color:var(--text);font-size:0.95rem;line-height:1.6;">Je krijgt advies dat écht bij jou past</span>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:0.875rem;">
+          <a href="contact.html" class="btn-green">Plan gratis intake</a>
+          <a href="overons.html" class="btn-outline">Leer Kim kennen</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section style="max-width:1280px;margin:0 auto;padding:0 2rem 6rem;">
+    <div style="background:var(--black);border-radius:28px;padding:4.5rem;display:grid;grid-template-columns:1fr;gap:3rem;align-items:center;" class="md:grid-cols-2">
+      <div>
+        <p style="color:var(--accent);font-size:0.8rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin:0 0 1.25rem 0;">Klaar om te beginnen?</p>
+        <h2 style="font-family:'Bebas Neue',cursive;font-size:clamp(2.5rem,5vw,4rem);line-height:0.95;color:#fff;margin:0 0 1.25rem 0;">Schrijf je vandaag nog in</h2>
+        <p style="color:rgba(255,255,255,0.5);font-size:1rem;line-height:1.8;margin:0;">Of begin met een gratis intakegesprek — geen druk, gewoon eerlijk advies.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.875rem;justify-content:flex-start;" class="md:justify-end">
+        <a href="contact.html" class="btn-green">Online inschrijven</a>
+        <a href="contact.html" style="display:inline-flex;align-items:center;border:1.5px solid rgba(255,255,255,0.2);color:#fff;font-size:0.875rem;font-weight:500;padding:13px 28px;border-radius:9999px;text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)'">Gratis intake</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:var(--white);border-top:1px solid var(--border);">
+    <div style="max-width:1280px;margin:0 auto;padding:5rem 2rem 3rem;">
+      <div style="display:grid;grid-template-columns:1fr;gap:3rem;margin-bottom:3.5rem;" class="md:grid-cols-3">
+        <div>
+          <p style="font-family:'Bebas Neue',cursive;font-size:1.5rem;letter-spacing:0.06em;color:var(--black);margin:0 0 0.875rem 0;">KIM'S GYM</p>
+          <p style="color:var(--muted);font-size:0.9rem;line-height:1.75;margin:0 0 1.75rem 0;">Jouw sportschool in St. Willebrord. 24/7 open, persoonlijk en eerlijk.</p>
+          <div style="display:flex;gap:0.75rem;">
+            <a href="#" style="width:36px;height:36px;border-radius:9999px;background:#f0eeea;display:flex;align-items:center;justify-content:center;color:#555;transition:background 0.2s;" onmouseover="this.style.background='#e0ddd6'" onmouseout="this.style.background='#f0eeea'" aria-label="Instagram">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="#" style="width:36px;height:36px;border-radius:9999px;background:#f0eeea;display:flex;align-items:center;justify-content:center;color:#555;transition:background 0.2s;" onmouseover="this.style.background='#e0ddd6'" onmouseout="this.style.background='#f0eeea'" aria-label="Facebook">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <p style="color:var(--black);font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 1.25rem 0;">Navigatie</p>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.75rem;">
+            <li><a href="openingstijden.html" style="color:var(--muted);font-size:0.9rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--muted)'">Openingstijden</a></li>
+            <li><a href="abonnementen.html" style="color:var(--muted);font-size:0.9rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--muted)'">Abonnementen</a></li>
+            <li><a href="coachingtrajecten.html" style="color:var(--muted);font-size:0.9rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--muted)'">Coaching Trajecten</a></li>
+            <li><a href="bedrijfsfitness.html" style="color:var(--muted);font-size:0.9rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--muted)'">Bedrijfsfitness</a></li>
+            <li><a href="overons.html" style="color:var(--muted);font-size:0.9rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--muted)'">Over ons</a></li>
+            <li><a href="contact.html" style="color:var(--muted);font-size:0.9rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--muted)'">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p style="color:var(--black);font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 1.25rem 0;">Contact</p>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.625rem;">
+            <li style="color:var(--muted);font-size:0.9rem;">Willem 3 Straat 4</li>
+            <li style="color:var(--muted);font-size:0.9rem;">4711 BW, St. Willebrord</li>
+            <li><a href="mailto:kimsgym@outlook.com" style="color:var(--muted);font-size:0.9rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--muted)'">kimsgym@outlook.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+        <p style="color:#bbb;font-size:0.8125rem;margin:0;">© 2025 Kim's Gym 24/7. Alle rechten voorbehouden.</p>
+        <a href="#" style="color:#bbb;font-size:0.8125rem;text-decoration:none;">Algemene voorwaarden</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/" class="wa-fab" aria-label="WhatsApp Kim">
+    <svg viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.78 3.4 4.74 4.34.41.196.842.382 1.288.487.47.115.892.244 1.387.244h.13c.4 0 .85-.115 1.234-.244.13-.043.245-.115.36-.158.7-.402 1.05-1.09 1.05-1.762 0-.444-.043-.673-.286-.917-.36-.358-1.4-1.046-1.745-1.046zM16.005 0C7.166 0 .003 7.16.003 16c0 2.876.76 5.594 2.1 7.93L0 32l8.292-2.072C10.553 31.27 13.225 32 16.005 32c8.84 0 16-7.163 16-16S24.846 0 16.005 0zm0 29.327c-2.585 0-4.985-.673-7.063-1.853l-.487-.286-5.165 1.275 1.36-5.022-.317-.502c-1.36-2.144-2.064-4.61-2.064-7.34 0-7.39 6.014-13.4 13.4-13.4 7.388 0 13.402 6.01 13.402 13.4-.002 7.39-6.016 13.4-13.404 13.4z"/></svg>
+    WhatsApp Kim
+  </a>
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      const m = document.getElementById('mobile-menu');
+      m.style.display = m.style.display === 'none' ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>

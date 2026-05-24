@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Openingstijden — Kim's Gym 24/7</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #f7f6f2; --white: #ffffff; --black: #111111; --text: #222222; --muted: #888888; --border: rgba(0,0,0,0.09); --accent: #b8ff00; --shadow: 0 2px 24px rgba(0,0,0,0.07); }
+    * { box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); margin: 0; -webkit-font-smoothing: antialiased; }
+    .nav-link { color: #666; font-size: 0.9rem; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+    .nav-link:hover { color: var(--black); }
+    .btn-green { display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: var(--black); font-size: 0.875rem; font-weight: 700; padding: 13px 28px; border-radius: 9999px; text-decoration: none; transition: filter 0.2s, transform 0.2s; }
+    .btn-green:hover { filter: brightness(1.06); transform: translateY(-1px); }
+    .btn-dark { display: inline-flex; align-items: center; justify-content: center; background: var(--black); color: #fff; font-size: 0.875rem; font-weight: 600; padding: 13px 28px; border-radius: 9999px; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .btn-dark:hover { background: #333; transform: translateY(-1px); }
+    .hours-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding: 1.125rem 0; }
+    .hours-row:last-child { border-bottom: none; }
+    .feature-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
+    .feature-item:last-child { border-bottom: none; }
+    .icon-pill { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; background: var(--accent); flex-shrink: 0; }
+  </style>
+</head>
+<body>
+
+  <header style="position:sticky;top:0;z-index:100;background:rgba(247,246,242,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);">
+    <nav style="max-width:1280px;margin:0 auto;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between;">
+      <a href="index.html" style="font-family:'Bebas Neue',cursive;font-size:1.5rem;letter-spacing:0.06em;color:var(--black);text-decoration:none;">KIM'S GYM</a>
+      <ul class="hidden md:flex" style="list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:2rem;">
+        <li><a href="openingstijden.html" class="nav-link" style="color:var(--black);font-weight:700;">Openingstijden</a></li>
+        <li><a href="abonnementen.html" class="nav-link">Abonnementen</a></li>
+        <li><a href="coachingtrajecten.html" class="nav-link">Coaching Trajecten</a></li>
+        <li><a href="bedrijfsfitness.html" class="nav-link">Bedrijfsfitness</a></li>
+        <li><a href="overons.html" class="nav-link">Over ons</a></li>
+        <li><a href="contact.html" class="btn-green" style="margin-left:8px;padding:10px 22px;font-size:0.825rem;">Gratis intake</a></li>
+      </ul>
+      <button id="menu-btn" class="md:hidden" style="background:none;border:none;cursor:pointer;color:#666;padding:4px;" aria-label="Menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="12" x2="19" y2="12"/><line x1="3" y1="18" x2="19" y2="18"/></svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" style="display:none;background:var(--white);border-top:1px solid var(--border);padding:1.5rem 2rem;">
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1.25rem;">
+        <li><a href="openingstijden.html" style="color:var(--black);font-size:0.9375rem;font-weight:700;text-decoration:none;">Openingstijden</a></li>
+        <li><a href="abonnementen.html" style="color:#666;font-size:0.9375rem;text-decoration:none;">Abonnementen</a></li>
+        <li><a href="coachingtrajecten.html" style="color:#666;font-size:0.9375rem;text-decoration:none;">Coaching Trajecten</a></li>
+        <li><a href="bedrijfsfitness.html" style="color:#666;font-size:0.9375rem;text-decoration:none;">Bedrijfsfitness</a></li>
+        <li><a href="overons.html" style="color:#666;font-size:0.9375rem;text-decoration:none;">Over ons</a></li>
+        <li><a href="contact.html" style="color:var(--black);font-size:0.9375rem;font-weight:700;text-decoration:none;">Gratis intake →</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Page hero -->
+  <section style="max-width:1280px;margin:0 auto;padding:5rem 2rem 4rem;">
+    <p style="color:var(--muted);font-size:0.8rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin:0 0 1rem 0;">Kim's Gym 24/7</p>
+    <h1 style="font-family:'Bebas Neue',cursive;font-size:clamp(3.5rem,8vw,6.5rem);line-height:0.92;color:var(--black);margin:0;">Openingstijden</h1>
+  </section>
+
+  <!-- Atmosphere image -->
+  <section style="max-width:1280px;margin:0 auto;padding:0 2rem 4rem;">
+    <div style="border-radius:24px;overflow:hidden;height:clamp(260px,38vw,440px);background:url('images/IMG_3635.jpg') center/cover no-repeat;position:relative;background-position:center 60%;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);"></div>
+      <div style="position:absolute;left:0;bottom:0;padding:2rem 2.5rem;max-width:540px;">
+        <p style="color:var(--accent);font-family:'Bebas Neue',cursive;font-size:clamp(2rem,4vw,3rem);line-height:1;margin:0 0 0.5rem 0;letter-spacing:0.02em;">24/7 open</p>
+        <p style="color:rgba(255,255,255,0.92);font-size:1rem;line-height:1.6;margin:0;">365 dagen per jaar. Vroeg in de ochtend, laat in de avond — train wanneer het jou uitkomt.</p>
+      </div>
+    </div>
+  </section>
+
+  <main style="max-width:1280px;margin:0 auto;padding:0 2rem 6rem;">
+    <div style="display:grid;grid-template-columns:1fr;gap:3rem;" class="lg:grid-cols-2">
+
+      <!-- Staffed hours -->
+      <div>
+        <div style="margin-bottom:2rem;">
+          <p style="color:var(--muted);font-size:0.8rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin:0 0 0.75rem 0;">Bemande uren</p>
+          <h2 style="font-family:'Bebas Neue',cursive;font-size:2.75rem;line-height:0.95;color:var(--black);margin:0 0 0.75rem 0;">Personeel aanwezig</h2>
+          <p style="color:var(--muted);font-size:0.9375rem;line-height:1.75;margin:0;">Tijdens deze uren is er personeel aanwezig voor advies, proefles of gewoon een praatje.</p>
+        </div>
+        <div style="background:var(--white);border-radius:20px;padding:1.75rem 2rem;box-shadow:0 2px 24px rgba(0,0,0,0.07);">
+          <div class="hours-row">
+            <span style="font-size:0.9375rem;font-weight:600;color:var(--black);">Maandag</span>
+            <span style="font-size:0.9375rem;color:var(--muted);">09:00–12:00 &amp; 16:00–20:00</span>
+          </div>
+          <div class="hours-row">
+            <span style="font-size:0.9375rem;font-weight:600;color:var(--black);">Dinsdag</span>
+            <span style="font-size:0.9375rem;color:var(--muted);">09:00–12:00 &amp; 18:00–20:00</span>
+          </div>
+          <div class="hours-row">
+            <span style="font-size:0.9375rem;font-weight:600;color:var(--black);">Woensdag</span>
+            <span style="font-size:0.9375rem;color:var(--muted);">09:00–12:00 &amp; 18:00–20:00</span>
+          </div>
+          <div class="hours-row">
+            <span style="font-size:0.9375rem;color:#ccc;">Donderdag</span>
+            <span style="font-size:0.9375rem;color:#ccc;">Geen personeel</span>
+          </div>
+          <div class="hours-row">
+            <span style="font-size:0.9375rem;color:#ccc;">Vrijdag</span>
+            <span style="font-size:0.9375rem;color:#ccc;">Geen personeel</span>
+          </div>
+          <div class="hours-row">
+            <span style="font-size:0.9375rem;color:#ccc;">Zaterdag</span>
+            <span style="font-size:0.9375rem;color:#ccc;">Geen personeel</span>
+          </div>
+          <div class="hours-row">
+            <span style="font-size:0.9375rem;color:#ccc;">Zondag</span>
+            <span style="font-size:0.9375rem;color:#ccc;">Geen personeel</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 24/7 access -->
+      <div>
+        <div style="margin-bottom:2rem;">
+          <p style="color:var(--muted);font-size:0.8rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin:0 0 0.75rem 0;">Altijd welkom</p>
+          <h2 style="font-family:'Bebas Neue',cursive;font-size:2.75rem;line-height:0.95;color:var(--black);margin:0 0 0.75rem 0;">24/7 Toegang</h2>
+          <p style="color:var(--muted);font-size:0.9375rem;line-height:1.75;margin:0;">Als lid heb je altijd toegang, ook als er geen personeel aanwezig is.</p>
+        </div>
+
+        <div style="background:var(--white);border-radius:20px;padding:1.75rem 2rem;box-shadow:0 2px 24px rgba(0,0,0,0.07);margin-bottom:1.25rem;">
+          <div class="feature-item">
+            <div class="icon-pill">
+              <svg width="18" height="18" fill="none" stroke="var(--black)" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"/></svg>
+            </div>
+            <div>
+              <p style="color:var(--black);font-size:0.9375rem;font-weight:700;margin:0 0 0.25rem 0;">Persoonlijke chip</p>
+              <p style="color:var(--muted);font-size:0.875rem;line-height:1.7;margin:0;">Met jouw persoonlijke chip open je de deur — elke dag, elk uur. 365 dagen per jaar beschikbaar.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="icon-pill">
+              <svg width="18" height="18" fill="none" stroke="var(--black)" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+            </div>
+            <div>
+              <p style="color:var(--black);font-size:0.9375rem;font-weight:700;margin:0 0 0.25rem 0;">Veilig en vertrouwd</p>
+              <p style="color:var(--muted);font-size:0.875rem;line-height:1.7;margin:0;">Jouw persoonlijke toegangspas is uniek en gekoppeld aan jouw lidmaatschap.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="icon-pill">
+              <svg width="18" height="18" fill="none" stroke="var(--black)" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div>
+              <p style="color:var(--black);font-size:0.9375rem;font-weight:700;margin:0 0 0.25rem 0;">Geen wachten</p>
+              <p style="color:var(--muted);font-size:0.875rem;line-height:1.7;margin:0;">Train wanneer het jou uitkomt — vroeg in de ochtend of laat op de avond. Jij bepaalt.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--accent);border-radius:16px;padding:1.75rem;display:flex;align-items:center;gap:1rem;">
+          <div style="width:42px;height:42px;border-radius:12px;background:var(--black);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="18" height="18" fill="none" stroke="var(--accent)" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <p style="color:var(--black);font-size:0.9375rem;font-weight:700;margin:0 0 0.25rem 0;">Altijd open voor leden</p>
+            <p style="color:rgba(0,0,0,0.6);font-size:0.85rem;line-height:1.6;margin:0;">Wil je ook 24/7 sporten? <a href="abonnementen.html" style="color:var(--black);font-weight:700;text-decoration:none;">Bekijk onze abonnementen →</a></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div style="margin-top:5rem;background:var(--black);border-radius:24px;padding:4rem;display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:center;" class="md:grid-cols-2">
+      <div>
+        <p style="color:var(--accent);font-size:0.8rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin:0 0 1rem 0;">Nog geen lid?</p>
+        <h3 style="font-family:'Bebas Neue',cursive;font-size:clamp(2rem,4.5vw,3.25rem);line-height:0.95;color:#fff;margin:0 0 1rem 0;">Plan een proefles voor €15</h3>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.9375rem;line-height:1.75;margin:0;">Kom langs tijdens een bemand uur en ontdek of Kim's Gym bij jou past. De €15 wordt verrekend als je je inschrijft.</p>
+      </div>
+      <div style="display:flex;justify-content:flex-start;flex-wrap:wrap;gap:0.875rem;" class="md:justify-end">
+        <a href="contact.html" class="btn-green">Neem contact op</a>
+      </div>
+    </div>
+  </main>
+
+  <footer style="background:var(--white);border-top:1px solid var(--border);">
+    <div style="max-width:1280px;margin:0 auto;padding:3rem 2rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <p style="font-family:'Bebas Neue',cursive;font-size:1.25rem;letter-spacing:0.06em;color:var(--black);margin:0;">KIM'S GYM 24/7</p>
+      <p style="color:#bbb;font-size:0.8125rem;margin:0;">© 2025 Kim's Gym 24/7 — Willem 3 Straat 4, St. Willebrord</p>
+      <a href="index.html" style="color:#aaa;font-size:0.8125rem;text-decoration:none;">← Terug naar home</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      const m = document.getElementById('mobile-menu');
+      m.style.display = m.style.display === 'none' ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>
