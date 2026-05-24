@@ -26,6 +26,8 @@
     .form-input:focus { border-color: var(--black); box-shadow: 0 0 0 3px rgba(0,0,0,0.06); }
     .form-label { display: block; color: var(--black); font-size: 0.8125rem; font-weight: 700; margin-bottom: 0.5rem; }
     .icon-pill { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 12px; background: var(--accent); flex-shrink: 0; }
+    .name-email-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    @media (min-width: 640px) { .name-email-grid { grid-template-columns: 1fr 1fr; } }
   </style>
 </head>
 <body>
@@ -33,7 +35,7 @@
   <header style="position:sticky;top:0;z-index:100;background:rgba(247,246,242,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);">
     <nav style="max-width:1280px;margin:0 auto;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between;">
       <a href="index.html" style="font-family:'Bebas Neue',cursive;font-size:1.5rem;letter-spacing:0.06em;color:var(--black);text-decoration:none;">KIM'S GYM</a>
-      <ul class="hidden md:flex" style="list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:2rem;">
+      <ul class="hidden md:flex" style="list-style:none;margin:0;padding:0;align-items:center;gap:2rem;">
         <li><a href="openingstijden.html" class="nav-link">Openingstijden</a></li>
         <li><a href="abonnementen.html" class="nav-link">Abonnementen</a></li>
         <li><a href="coachingtrajecten.html" class="nav-link">Coaching Trajecten</a></li>
@@ -72,7 +74,7 @@
         <h2 style="font-family:'Bebas Neue',cursive;font-size:2.5rem;line-height:0.95;color:var(--black);margin:0 0 2rem 0;">Stuur een bericht</h2>
 
         <form id="contact-form" style="display:flex;flex-direction:column;gap:1.25rem;" novalidate>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div class="name-email-grid">
             <div>
               <label class="form-label" for="naam">Naam *</label>
               <input class="form-input" id="naam" type="text" name="naam" placeholder="Jan de Vries" required autocomplete="name">
